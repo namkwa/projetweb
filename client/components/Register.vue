@@ -6,6 +6,7 @@
         <option value="locataire">locataire</option>
         <option value="proprietaire">propriétaire</option>
     </select>
+    <input type="text" v-model="newUser.age" placeholder="age" />
     <button @click="addUser(newUser)">S'enregistrer</button>
   </div>
 </template>
@@ -18,6 +19,8 @@ module.exports = {
       newUser: {
         password: "",
         email: "",
+        status: "",
+        age:"",
       },
     };
   },
