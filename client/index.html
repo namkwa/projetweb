@@ -1,0 +1,31 @@
+<!DOCTYPE >
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chalet</title>
+    <!-- Load Vue followed by Vue Router -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>À la bonne franquette</h1>
+        <nav>
+          <router-link to="/">Accueil</router-link>
+          <router-link to="/ListChalet">Les chalets</router-link>
+          <router-link to="/CreateChalet">Mettre une annonce</router-link>
+          <router-link to="/HistoryChalet">Historique</router-link>
+          <router-link to="/register">S'enregister</router-link>
+          <router-link to="/login">connexion</router-link>
+        </nav>
+      </header>
+      <main>
+        <router-view></router-view>
+      </main>
+    </div>
+    <script src="/vue-application.js"></script>
+  </body>
+</html>
