@@ -19,6 +19,8 @@ module.exports = {
       newUser: {
         password: "",
         email: "",
+        status: "",
+        age:"",
       },
     };
   },
