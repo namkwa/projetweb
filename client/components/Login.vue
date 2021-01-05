@@ -4,13 +4,9 @@
             <div class="title">
                 <h2>Connexion</h2>
             </div>
-            <form>
-                <input class="mail" v-model="user.email" type="email" placeholder="Email">
-                <div>
-                    <input class="password" v-model="user.password" :type="passwordType" name="" id="" placeholder="Mot de passe">
-                </div>
-                <button class="btn" type="submit">Se connecter</button>
-            </form>
+            <input type="text" v-model="user.email" placeholder="email" />
+            <input type="text" v-model="user.password" placeholder="password" />
+            <button @click="login(user)">Se connecter</button>
             <span class="redirection">Pas de compte ?</span>
             <router-link to="/register">S'inscrire</router-link>
         </article>
@@ -67,7 +63,6 @@ module.exports = {
   .redirection {
     color: rgb(116, 36, 36);
   }
-
 
 
 </style>

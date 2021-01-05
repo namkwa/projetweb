@@ -24,10 +24,18 @@ var app = new Vue({
   router,
   el: '#app',
   data: {
-    listChalet: []
+    listChalet: [],
+    connected: false
   },
   async mounted () {
-    const res = await axios.get('/ListChalet')
-    this.listChalet = res.data
-  }
+  },
+  methods: {
+    async addUser (newUser) {
+      await axios.post('/api/register', newUser)
+    },
+    async login (user) {
+      await axios.post('/api/login', user)
+      this.connected = true
+    },
+  },
 })

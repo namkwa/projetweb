@@ -2,7 +2,16 @@ const express = require('express')
 const router = express.Router()
 
 const bcrypt = require('bcrypt')
+const { Client } = require('pg')
 
+const client = new Client({
+ user: 'postgres',
+ host: 'localhost',
+ password: '123',
+ database: 'Projet'
+})
+
+client.connect()
 
 class Panier {
   constructor () {
@@ -47,6 +56,8 @@ router.post('/login', async (req,res) => {
 router.post('/register', async (req, res) => {
   const email = req.body.email
   const password = req.body.password
+  const status = req.body.status
+  const age = req.body.age
   const hash = await bcrypt.hash(password, 10)
   const result = await client.query("SELECT email FROM users")
   if (typeof email !== 'string' || email === '' ||
@@ -59,8 +70,8 @@ router.post('/register', async (req, res) => {
   }
   else {
     await client.query({
-      text: "INSERT INTO users(email, password) VALUES ($1, $2)",
-      values: [email, hash.toString()]
+      text: "INSERT INTO Users(email, password, status, age) VALUES ($1, $2, $3, $4)",
+      values: [email, hash.toString(), status, age]
     })
     console.log(req.session.userId)
     res.json(email)
