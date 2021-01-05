@@ -2,16 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const bcrypt = require('bcrypt')
-const { Client } = require('pg')
 
-const client = new Client({
- user: 'postgres',
- host: 'localhost',
- password: '123',
- database: 'projet'
-})
-
-client.connect()
 
 class Panier {
   constructor () {
@@ -81,3 +72,5 @@ router.get('/ListChalet', async (req,res) => {
   const result = await client.query("SELECT * FROM Chalet")
   res.json(result)
 })
+
+module.exports = router

@@ -2,6 +2,10 @@
   <div>
     <input type="text" v-model="newUser.email" placeholder="email" />
     <input type="text" v-model="newUser.password" placeholder="password" />
+    <select v-model="newUser.status">
+        <option value="locataire">locataire</option>
+        <option value="proprietaire">propriétaire</option>
+    </select>
     <button @click="addUser(newUser)">S'enregistrer</button>
   </div>
 </template>
