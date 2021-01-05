@@ -29,4 +29,6 @@ module.exports = {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
