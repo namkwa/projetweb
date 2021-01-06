@@ -36,22 +36,19 @@ module.exports = {
   h2 {
     text-align: center;
     font-size: 1.5em;
-    width: 100%;
   }
   .layout {
-    border: 5px solid rgb(14, 185, 80);
-    background-color: rgb(106, 228, 146);
-    padding: 10px;
+    border: 5px solid rgb(85, 87, 85);
+    background: linear-gradient(violet, lightblue);
+    padding: 5px;
     border-radius: 30px;
     margin: 50px;
   }
-  form {
+  .form {
     text-align: center;
-    margin: 10px;
-    padding: 10px;
+    margin: 20px;
   }
   input{
-    
     border: 2px solid white;
     background: transparent;
     color: white;
@@ -60,8 +57,13 @@ module.exports = {
     padding: 10px;
     background-color: none;
   }
+  .btn {
+    border-radius: 20px;
+    margin: 20px;
+    padding: 5px 15px;
+  }
   .redirection {
-    color: rgb(116, 36, 36);
+    color: rgb(10, 10, 10);
   }
 
 
