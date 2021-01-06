@@ -1,15 +1,15 @@
 <template>
   <section class ="layout">
-        <article>
-            <div class="title">
-                <h2>Connexion</h2>
-            </div>
-            <input type="text" v-model="user.email" placeholder="email" />
-            <input type="text" v-model="user.password" placeholder="password" />
-            <button @click="login(user)">Se connecter</button>
-            <span class="redirection">Pas de compte ?</span>
-            <router-link to="/register">S'inscrire</router-link>
-        </article>
+    <article>
+      <div class="title">
+          <h2>Connexion</h2>
+      </div>
+      <input type="text" v-model="user.email" placeholder="email" />
+      <input type="text" v-model="user.password" placeholder="password" />
+      <button @click="login(user)">Se connecter</button>
+      <span class="redirection">Pas de compte ?</span>
+      <router-link to="/register">S'inscrire</router-link>
+    </article>
   </section>
 </template>
 

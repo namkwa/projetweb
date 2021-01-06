@@ -18,13 +18,20 @@
           <router-link to="/ListChalet">Les chalets</router-link>
           <router-link to="/CreateChalet">Mettre une annonce</router-link>
           <router-link to="/HistoryChalet">Historique</router-link>
-          <router-link to="/">Mon profil</router-link>
-          <router-link to="/register">S'enregister</router-link>
-          <router-link to="/login" v-else>Connexion</router-link>
+          <router-link to="/MyProfile" v-if="connected">Mon profil</router-link>
+          <router-link to="/register" v-if="! connected"
+            >S'enregister</router-link
+          >
+          <router-link to="/login" v-if="! connected">Connexion</router-link>
         </nav>
       </header>
       <main>
-        <router-view :connected="connected" @add-user="addUser"></router-view>
+        <router-view
+          :connected="connected"
+          :current-user="currentUser"
+          @add-user="addUser"
+          @login="login"
+        ></router-view>
       </main>
     </div>
     <script src="/vue-application.js"></script>

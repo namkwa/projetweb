@@ -2,6 +2,7 @@ const Home = window.httpVueLoader('./components/Home.vue')
 const ListChalet = window.httpVueLoader('./components/ListChalet.vue')
 const CreateChalet = window.httpVueLoader('./components/CreateChalet.vue')
 const HistoryChalet = window.httpVueLoader('./components/HistoryChalet.vue')
+const MyProfile = window.httpVueLoader('./components/MyProfile.vue')
 const Reservation = window.httpVueLoader('./components/Reservation.vue')
 const Register = window.httpVueLoader('./components/Register.vue')
 const Login = window.httpVueLoader('./components/Login.vue')
@@ -11,6 +12,7 @@ const routes = [
   { path: '/CreateChalet', component: CreateChalet},
   { path: '/ListChalet', component: ListChalet},
   { path: '/HistoryChalet', component: HistoryChalet},
+  { path: '/MyProfile', component: MyProfile},
   { path: '/Reservation', component: Reservation},
   { path: '/register', component: Register },
   { path: '/login', component: Login },
@@ -25,9 +27,12 @@ var app = new Vue({
   el: '#app',
   data: {
     listChalet: [],
-    connected: false
+    connected: false,
+    currentUser: {}
   },
   async mounted () {
+    const res = await axios.get('/api/ListChalet')
+    this.listChalet = res.data
   },
   methods: {
     async addUser (newUser) {
@@ -36,6 +41,9 @@ var app = new Vue({
     async login (user) {
       await axios.post('/api/login', user)
       this.connected = true
+      const res = await axios.get('/api/me')
+      console.log(res.data)
+      this.currentUser = res.data
     },
   },
 })

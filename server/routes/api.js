@@ -13,22 +13,6 @@ const client = new Client({
 
 client.connect()
 
-class Panier {
-  constructor () {
-    this.createdAt = new Date()
-    this.updatedAt = new Date()
-    this.articles = []
-  }
-}
-
-router.use((req, res, next) => {
-  // l'utilisateur n'est pas reconnu, lui attribuer un panier dans req.session
-  if (typeof req.session.panier === 'undefined') {
-    req.session.panier = new Panier()
-  }
-  next()
-})
-
 router.post('/login', async (req,res) => {
   const email = req.body.email
   const password = req.body.password
@@ -73,14 +57,27 @@ router.post('/register', async (req, res) => {
       text: "INSERT INTO Users(email, password, status, age) VALUES ($1, $2, $3, $4)",
       values: [email, hash.toString(), status, age]
     })
-    console.log(req.session.userId)
     res.json(email)
     return
   }
 })
 
+router.get('/me', async (req, res) => {
+  const result = await client.query({
+    text: "SELECT email,status,age,profile_picture FROM users WHERE id=$1",
+    values: [req.session.userId]
+  })
+  if (result.rows.length) {
+    res.json(result.rows[0])
+  }
+  else {
+    res.status(403).json({message: "vous n'êtes pas connecté"})
+  }
+  
+})
+
 router.get('/ListChalet', async (req,res) => {
-  const result = await client.query("SELECT * FROM Chalet")
+  const result = await client.query("SELECT * FROM chalet")
   res.json(result)
 })
 
