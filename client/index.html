@@ -9,21 +9,70 @@
     <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
+  <style scoped>
+
+    
+
+    h1 {  
+      background: linear-gradient(skyblue, turquoise);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: aliceblue;
+      font-size: 1.6em;
+      text-align: center;
+    }
+
+    .top {
+      background: linear-gradient(skyblue, turquoise);
+      text-align: right;
+      margin: 0;
+    }
+
+    .top li {
+      list-style: none;
+    }
+
+    #banner {
+      background: linear-gradient(skyblue, turquoise);
+      height: 80px;
+    }
+
+    #banner ul li {
+      display: inline-block;
+      margin: 0 125px;
+      text-align: justify;
+      line-height: 80px         /*pour centrer par rapport à la taille de bannière*/
+    }
+    
+    /*pour appliquer sur les liens*/
+    #banner a {                 
+      color: white;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3em;
+    }
+  </style>
+
   <body>
     <div id="app">
       <header>
-        <h1>À la bonne franquette</h1>
-        <nav>
-          <router-link to="/">Accueil</router-link>
-          <router-link to="/ListChalet">Les chalets</router-link>
-          <router-link to="/CreateChalet">Mettre une annonce</router-link>
-          <router-link to="/HistoryChalet">Historique</router-link>
-          <router-link to="/MyProfile" v-if="connected">Mon profil</router-link>
-          <router-link to="/register" v-if="! connected"
-            >S'enregister</router-link
-          >
-          <router-link to="/login" v-if="! connected">Connexion</router-link>
+        <h1>Location de Chalet</h1>
+        <nav class="top">
+          <ul>
+            <li><router-link to="/register" v-if="! connected">S'inscrire</router-link></li>
+            <li><router-link to="/login" v-if="! connected">Se connecter</router-link></li>
+          </ul>
         </nav>
+        <nav id="banner">
+          <ul>
+            <li class="xgon"><router-link to="/">Accueil</router-link></li>
+            <li><router-link to="/ListChalet">Les chalets</router-link></li>
+            <li><router-link to="/CreateChalet">Mettre une annonce</router-link></li>
+            <li><router-link to="/HistoryChalet">Historique</router-link></li>
+            <li><router-link to="/MyProfile" v-if="! connected">Mon profil</router-link></li>
+          </ul>
+        </nav>
+        
+        
       </header>
       <main>
         <router-view

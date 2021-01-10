@@ -1,18 +1,20 @@
 <template>
   <section class ="layout">
     <article>
-      <div class="title">
+      <div class="form">
           <h2>Connexion</h2>
+        <div>
+          <input type="text" v-model="user.email" placeholder="email" />
+        </div>
+        <div>
+          <input type="text" v-model="user.password" placeholder="password" />
+        </div>
+        <div>
+          <button @click="login(user)">Se connecter</button>
+        </div>
+        <span class="redirection">Pas de compte ?</span>
+        <router-link to="/register">S'inscrire</router-link>
       </div>
-      <div>
-        <input type="text" v-model="user.email" placeholder="email" />
-      </div>
-      <div>
-        <input type="text" v-model="user.password" placeholder="password" />
-      </div>
-      <button @click="login(user)">Se connecter</button>
-      <span class="redirection">Pas de compte ?</span>
-      <router-link to="/register">S'inscrire</router-link>
     </article>
   </section>
 </template>
@@ -37,24 +39,29 @@ module.exports = {
 </script>
 
 
-<style>
+<style scoped>
 
 /*test*/
 
   h2 {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
+    font-family: Gill Sans, sans-serif;
   }
   .layout {
     border: 5px solid rgb(85, 87, 85);
     background: linear-gradient(violet, lightblue);
     padding: 5px;
     border-radius: 30px;
-    margin: 50px;
+    width: 30%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
   }
   .form {
     text-align: center;
-    margin: 20px;
+  
   }
   input{
     border: 2px solid white;
