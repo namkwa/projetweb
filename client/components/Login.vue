@@ -4,8 +4,12 @@
       <div class="title">
           <h2>Connexion</h2>
       </div>
-      <input type="text" v-model="user.email" placeholder="email" />
-      <input type="text" v-model="user.password" placeholder="password" />
+      <div>
+        <input type="text" v-model="user.email" placeholder="email" />
+      </div>
+      <div>
+        <input type="text" v-model="user.password" placeholder="password" />
+      </div>
       <button @click="login(user)">Se connecter</button>
       <span class="redirection">Pas de compte ?</span>
       <router-link to="/register">S'inscrire</router-link>
@@ -61,7 +65,7 @@ module.exports = {
     padding: 10px;
     background-color: none;
   }
-  .btn {
+  button {
     border-radius: 20px;
     margin: 20px;
     padding: 5px 15px;
