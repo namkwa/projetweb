@@ -57,7 +57,7 @@ module.exports = {
     padding: 10px;
     background-color: none;
   }
-  .btn {
+  button {
     border-radius: 20px;
     margin: 20px;
     padding: 5px 15px;
