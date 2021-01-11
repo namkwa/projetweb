@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  min-height: 100vh;
+}
+header {
+  padding: 20px;
+  background-color: #454545;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: auto;
+  max-width: 1200px;
+}
+
+header h1 {
+  font-family: "Indie Flower", cursive;
+
+  font-size: 28px;
+  line-height: 30px;
+  color: antiquewhite;
+}
+
+header nav a {
+  text-decoration: unset;
+  color: aliceblue;
+  display: inline-block;
+  padding: 5px 7px;
+  margin: 0 2px;
+}
+
+header nav a:hover {
+  border: 2px solid #fff;
+  margin: 0;
+}
