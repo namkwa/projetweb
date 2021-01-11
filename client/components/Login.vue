@@ -1,6 +1,5 @@
 <template>
   <section class="layout">
-    <div class="bg"></div>
     <article>
       <div class="container">
         <div class="card">
@@ -49,20 +48,7 @@ h2 {
   color: darkslategrey;
 }
 .layout {
-  overflow: hidden;
-  position: relative;
-}
-
-.layout .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  min-height: 280vh;
-  min-width: auto;
-  background: #b43ab3;
-  background: radial-gradient(circle, #5b3ab4 40%, #427bd5 52%, #29a6c2 68%);
-  z-index: -1;
+  background: rgb(214, 153, 117);
 }
 
 article {
@@ -78,8 +64,8 @@ article {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.164);
+  box-shadow: 0 8px 32px 0 rgba(190, 135, 62, 0.37);
   backdrop-filter: blur(10.5px);
   -webkit-backdrop-filter: blur(10.5px);
   border-radius: 10px;
@@ -129,6 +115,6 @@ button {
   display: block;
   width: 105px;
   height: 5px;
-  background: #5b3ab4;
+  background: rgb(197, 118, 72);
 }
 </style>
