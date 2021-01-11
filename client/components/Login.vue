@@ -45,9 +45,6 @@ h2 {
   font-size: 3rem;
   color: darkslategrey;
 }
-.layout {
-  background: rgb(214, 153, 117);
-}
 
 article {
   height: auto;

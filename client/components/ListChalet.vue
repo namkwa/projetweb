@@ -7,6 +7,7 @@
           <p>desciption : <br>{{chalet.description}}</p>
           <p>localisation : <br>{{chalet.location}}</p>
           <p>prix : {{chalet.price}}</p>
+          <button>Réserver</button>
         </div>
         
       </article>
@@ -31,11 +32,7 @@ module.exports = {
 }
 </script>
 
-<style>
-.layout {
-  background: rgb(214, 153, 117);
-}
-
+<style scoped>
 img{
   height: 10em;
   width: 15em;
@@ -67,4 +64,5 @@ img{
 p{
   padding: 30px;
 }
+
 </style>
