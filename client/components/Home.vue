@@ -2,7 +2,7 @@
   <section class="layout">
         <div class="card">
             <h1>ChalEfrei</h1>
-            <p>Le site n°1 (non) de location de chalet !</p>
+            <p>Le site n°1 de location de chalet !</p>
         </div>
     </section>
 </template>
