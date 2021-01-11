@@ -36,7 +36,6 @@ module.exports = {
 img{
   height: 10em;
   width: 15em;
-  background-size: cover;
 }
 
 .container {
@@ -57,12 +56,18 @@ img{
   border-radius: 10px;
   padding: 30px;
   min-width: 50rem;
+  max-height: 200px;
   display: flex;
   margin: 5px;
 }
 
-p{
+p {
   padding: 30px;
 }
 
+button {
+  margin-top: 30px;
+  margin-left: 0px;
+  height: 70px;
+}
 </style>

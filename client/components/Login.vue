@@ -67,6 +67,7 @@ article {
   border-radius: 10px;
   padding: 30px;
   min-width: 50rem;
+  margin-top: 50px;
 }
 
 form {
@@ -75,15 +76,6 @@ form {
   align-items: center;
 }
 
-input {
-  border: 2px solid white;
-  background: transparent;
-  color: white;
-  margin: 10px;
-  border-radius: 50px;
-  padding: 10px;
-  background-color: none;
-}
 button {
   max-width: 8rem;
   border-radius: 20px;
