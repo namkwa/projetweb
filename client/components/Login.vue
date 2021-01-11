@@ -41,8 +41,6 @@ module.exports = {
 
 <style scoped>
 
-/*test*/
-
   h2 {
     text-align: center;
     font-size: 1.4em;
