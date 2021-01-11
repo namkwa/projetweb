@@ -68,7 +68,7 @@ router.post('/register', async (req, res) => {
 
 router.get('/me', async (req, res) => {
   const result = await client.query({
-    text: "SELECT email,status,age,profile_picture,id FROM users WHERE id=$1",
+    text: "SELECT email,status,age,id FROM users WHERE id=$1",
     values: [req.session.userId]
   })
   if (result.rows.length) {

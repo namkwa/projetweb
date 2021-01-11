@@ -51,16 +51,19 @@ module.exports = {
           d2 = false
           w1 = false
           duration = 'd1'
+          break;
         case '2':
           d1 = false
           d2 = true
           w1 = false
           duration = 'd2'
+          break;
           case '3':
           d1 = false
           d2 = false
           w1 = true
           duration = 'w1'
+          break;
       }
     },
     book (duration,date) {
