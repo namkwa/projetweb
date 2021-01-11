@@ -15,7 +15,8 @@
 
 <script>
 module.exports = {
-  props: {},
+  props: {
+  },
   data() {
     return {
       user: {

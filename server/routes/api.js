@@ -24,7 +24,11 @@ router.post('/login', async (req,res) => {
     const pass = await bcrypt.compare(password, query.rows[0].password)
     if (! query.length && pass && query.rows[0].id!== req.session.userId) {
       req.session.userId = query.rows[0].id
-      res.json(query.rows[0].id)
+      const result = await client.query({
+        text: "SELECT price, description, location, image, chalet.id FROM reservation JOIN chalet ON id_chalet = chalet.id WHERE id_client = $1",
+        values: [query.rows[0].id]
+      })
+      res.json(result.rows[0])
       return
     }
     else if(query.rows[0].id === req.session.userId && query.rows[0].email === email && pass) {
@@ -64,7 +68,7 @@ router.post('/register', async (req, res) => {
 
 router.get('/me', async (req, res) => {
   const result = await client.query({
-    text: "SELECT email,status,age,profile_picture FROM users WHERE id=$1",
+    text: "SELECT email,status,age,profile_picture,id FROM users WHERE id=$1",
     values: [req.session.userId]
   })
   if (result.rows.length) {
@@ -76,9 +80,18 @@ router.get('/me', async (req, res) => {
   
 })
 
-router.get('/ListChalet', async (req,res) => {
+router.get('/listChalet', async (req, res) => {
   const result = await client.query("SELECT * FROM chalet")
-  res.json(result)
+  res.json(result.rows[0])
+})
+
+router.get('/history', async (req, res) => {
+  const result = await client.query({
+    text: "SELECT price, description, location, image, chalet.id FROM reservation JOIN chalet ON id_chalet = chalet.id WHERE id_client = $1",
+    values: [req.body.id]
+  })
+  console.log(req.body.id)
+  res.json(result.rows[0])
 })
 
 module.exports = router

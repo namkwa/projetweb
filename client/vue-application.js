@@ -28,22 +28,24 @@ var app = new Vue({
   data: {
     listChalet: [],
     connected: false,
-    currentUser: {}
+    currentUser: {},
+    history: []
   },
   async mounted () {
-    const res = await axios.get('/api/ListChalet')
-    this.listChalet = res.data
+    const res = await axios.get('/api/listChalet')
+    console.log(res.data)
+    this.listChalet[0] = res.data
   },
   methods: {
     async addUser (newUser) {
       await axios.post('/api/register', newUser)
     },
     async login (user) {
-      await axios.post('/api/login', user)
+      const res = await axios.post('/api/login', user)
       this.connected = true
-      const res = await axios.get('/api/me')
-      console.log(res.data)
-      this.currentUser = res.data
+      this.history[0] = res.data
+      const res2 = await axios.get('/api/me')
+      this.currentUser = res2.data
     },
   },
 })
