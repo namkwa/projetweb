@@ -34,8 +34,11 @@
           :current-user="currentUser"
           :list-chalet="listChalet"
           :history="history"
+          :current-reservation="currentReservation"
           @add-user="addUser"
           @login="login"
+          @start-book="startBook"
+          @deconnect="deconnect"
         ></router-view>
       </main>
     </div>

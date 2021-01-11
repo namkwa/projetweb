@@ -43,7 +43,7 @@ h2 {
   font-family: "Indie Flower", cursive;
   text-align: center;
   font-size: 3rem;
-  color: rgb(54, 47, 79);
+  color: darkslategrey;
 }
 
 article {

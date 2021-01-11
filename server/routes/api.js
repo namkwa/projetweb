@@ -28,7 +28,7 @@ router.post('/login', async (req,res) => {
         text: "SELECT price, description, location, image, chalet.id FROM reservation JOIN chalet ON id_chalet = chalet.id WHERE id_client = $1",
         values: [query.rows[0].id]
       })
-      res.json(result.rows[0])
+      res.json(result.rows)
       return
     }
     else if(query.rows[0].id === req.session.userId && query.rows[0].email === email && pass) {
@@ -85,13 +85,22 @@ router.get('/listChalet', async (req, res) => {
   res.json(result.rows)
 })
 
-router.get('/history', async (req, res) => {
+router.get('/chalet/:id', async (req, res) => {
   const result = await client.query({
-    text: "SELECT price, description, location, image, chalet.id FROM reservation JOIN chalet ON id_chalet = chalet.id WHERE id_client = $1",
-    values: [req.body.id]
+    text: "SELECT * FROM chalet WHERE id = $1",
+    values: [req.params.id]
   })
-  console.log(req.body.id)
-  res.json(result.rows)
+  console.log(req.params.id,result.rows[0])
+  res.json(result.rows[0]) 
+})
+
+router.post('/deconnect', (req, res) => {
+  req.session.destroy()
+  res.json({message : "succesful deconnection"})
+})
+
+router.post('/reservation', async (req, res) => {
+
 })
 
 module.exports = router

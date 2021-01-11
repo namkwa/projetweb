@@ -14,8 +14,8 @@ const routes = [
   { path: '/HistoryChalet', component: HistoryChalet},
   { path: '/MyProfile', component: MyProfile},
   { path: '/Reservation', component: Reservation},
-  { path: '/register', component: Register },
-  { path: '/login', component: Login },
+  { path: '/Register', component: Register },
+  { path: '/Login', component: Login },
 ]
 
 const router = new VueRouter({
@@ -29,7 +29,8 @@ var app = new Vue({
     listChalet: [],
     connected: false,
     currentUser: {},
-    history: []
+    history: [],
+    currentReservation: {}
   },
   async beforeCreate () {
     const res = await axios.get('/api/listChalet')
@@ -46,6 +47,19 @@ var app = new Vue({
       this.history = res.data
       const res2 = await axios.get('/api/me')
       this.currentUser = res2.data
+      router.replace('/MyProfile')
     },
+    async startBook (chalet) {
+      const res = await axios.get('/api/chalet/' + chalet.id)
+      this.currentReservation = res.data
+      console.log(res.data)
+      router.replace('/Reservation')
+    },
+    async deconnect () {
+      currentUser = {}
+      this.connected = false
+      await axios.post('/api/deconnect')
+      router.replace('/Login')
+    }
   },
 })
