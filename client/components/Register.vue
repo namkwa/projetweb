@@ -53,19 +53,13 @@ h2 {
 }
 
 .container {
-  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  
+  align-items: top;
+  margin: 50px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.164);
-  box-shadow: 0 8px 32px 0 rgba(190, 135, 62, 0.37);
-  backdrop-filter: blur(10.5px);
-  -webkit-backdrop-filter: blur(10.5px);
-  border-radius: 10px;
   padding: 30px;
   min-width: 50rem;
 }
@@ -113,7 +107,7 @@ button {
 .redirection:hover::after {
   content: "";
   display: block;
-  width: 105px;
+  width: 191px;
   height: 5px;
   background: rgb(197, 118, 72);
 }

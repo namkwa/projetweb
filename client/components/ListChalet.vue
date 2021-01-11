@@ -49,25 +49,21 @@ img{
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.164);
-  box-shadow: 0 8px 32px 0 rgba(190, 135, 62, 0.37);
-  backdrop-filter: blur(10.5px);
-  -webkit-backdrop-filter: blur(10.5px);
-  border-radius: 10px;
   padding: 30px;
   min-width: 50rem;
+  max-width: 50rem;
   max-height: 200px;
   display: flex;
   margin: 5px;
+  align-items: center;
+  
 }
 
 p {
-  padding: 30px;
+  padding: 5px;
 }
 
 button {
-  margin-top: 30px;
-  margin-left: 0px;
-  height: 70px;
+  text-transform: uppercase;
 }
 </style>
