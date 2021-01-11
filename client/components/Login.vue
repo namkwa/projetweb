@@ -52,7 +52,6 @@ article {
 
 .container {
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,8 +91,9 @@ button {
   color: antiquewhite;
 
   font-size: 14px;
-
+  
   border: none;
+  margin: 20px;
 }
 .redirection {
   display: block;
