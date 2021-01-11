@@ -82,7 +82,7 @@ router.get('/me', async (req, res) => {
 
 router.get('/listChalet', async (req, res) => {
   const result = await client.query("SELECT * FROM chalet")
-  res.json(result.rows[0])
+  res.json(result.rows)
 })
 
 router.get('/history', async (req, res) => {
@@ -91,7 +91,7 @@ router.get('/history', async (req, res) => {
     values: [req.body.id]
   })
   console.log(req.body.id)
-  res.json(result.rows[0])
+  res.json(result.rows)
 })
 
 module.exports = router

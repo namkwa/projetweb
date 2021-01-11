@@ -31,10 +31,10 @@ var app = new Vue({
     currentUser: {},
     history: []
   },
-  async mounted () {
+  async beforeCreate () {
     const res = await axios.get('/api/listChalet')
     console.log(res.data)
-    this.listChalet[0] = res.data
+    this.listChalet = res.data
   },
   methods: {
     async addUser (newUser) {
@@ -43,7 +43,7 @@ var app = new Vue({
     async login (user) {
       const res = await axios.post('/api/login', user)
       this.connected = true
-      this.history[0] = res.data
+      this.history = res.data
       const res2 = await axios.get('/api/me')
       this.currentUser = res2.data
     },

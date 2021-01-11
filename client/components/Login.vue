@@ -1,22 +1,20 @@
 <template>
   <section class="layout">
-    <article>
-      <div class="container">
-        <div class="card">
-          <div class="title">
-            <h2>Connexion</h2>
-          </div>
-          <form action="">
-            <input type="text" v-model="user.email" placeholder="email" />
-            <input type="text" v-model="user.password" placeholder="password" />
-            <button type="button" @click="login(user)">Se connecter</button>
-          </form>
-          <router-link class="redirection" to="/register"
-            >Pas de compte ? S'inscrire</router-link
-          >
+    <div class="container">
+      <div class="card">
+        <div class="title">
+          <h2>Connexion</h2>
         </div>
+        <form action="">
+          <input type="text" v-model="user.email" placeholder="email" />
+          <input type="text" v-model="user.password" placeholder="password" />
+          <button type="button" @click="login(user)">Se connecter</button>
+        </form>
+        <router-link class="redirection" to="/register"
+          >Pas de compte ? S'inscrire</router-link
+        >
       </div>
-    </article>
+    </div>
   </section>
 </template>
 
@@ -40,7 +38,7 @@ module.exports = {
 };
 </script>
 
-<style>
+<style scoped>
 h2 {
   font-family: "Indie Flower", cursive;
   text-align: center;
@@ -61,6 +59,7 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .card {
